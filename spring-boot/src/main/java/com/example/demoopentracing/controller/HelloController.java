@@ -1,5 +1,4 @@
-package com.example.demoopentracing;
-
+package com.example.demoopentracing.com.example.demoopentracing.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
