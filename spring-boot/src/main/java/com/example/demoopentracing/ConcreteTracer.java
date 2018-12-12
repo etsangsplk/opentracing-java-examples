@@ -30,8 +30,7 @@ public class ConcreteTracer {
     public static int LIGHTSTEP_VERBOSITY_DEFAULT = Options.VERBOSITY_INFO;
 
     public static Tracer getTracer(String serviceName) {
-        Tracer tracer = NoopTracerFactory.create();
-        GlobalTracer.register(tracer);
+        GlobalTracer.register(NoopTracerFactory.create());
         try {
             Map<String, String> config = getSettings();
             String enabled = config.getOrDefault(LIGHTSTEP_ENABLED_ENVVAR, LIGHTSTEP_ENABLED_DEFAUlT);
@@ -39,7 +38,7 @@ public class ConcreteTracer {
             Boolean tracerEnabled = Boolean.parseBoolean(enabled);
             if (tracerEnabled == false) {
                 LOGGER.info("Tracer disabled. Returning NoopTracer.");
-                return tracer;
+                return NoopTracerFactory.create();
             }
 
             String verbose = config.getOrDefault(LIGHTSTEP_VERBOSE_ENVVAR, String.valueOf(LIGHTSTEP_VERBOSITY_DEFAULT));
@@ -52,7 +51,7 @@ public class ConcreteTracer {
                     .withComponentName(serviceName)
                     .withVerbosity(verbosity)
                     .build();
-            tracer = new JRETracer(options);
+            Tracer tracer = new JRETracer(options);
             LOGGER.info("Tracer initialized with serviceName", serviceName);
             GlobalTracer.register(tracer);
             return tracer;
@@ -60,8 +59,12 @@ public class ConcreteTracer {
         } catch (MalformedURLException ex) {
             // TODO: Don't know whay Malformed exception is not caught here.
             LOGGER.warn("Tracer initialized failed with exception={}. returning NoopTracer. ", ex.getMessage());
-            return tracer;
+            return NoopTracerFactory.create();
+        } catch ( InterruptedException ex) {
+            LOGGER.warn("Tracer initialized failed with exception={}. returning NoopTracer. ", ex.getMessage());
+            return NoopTracerFactory.create();
         }
+
     }
 
     public static void flush(Tracer tracer) {
