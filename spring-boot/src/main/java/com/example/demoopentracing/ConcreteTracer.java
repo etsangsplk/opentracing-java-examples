@@ -60,11 +60,7 @@ public class ConcreteTracer {
             // TODO: Don't know whay Malformed exception is not caught here.
             LOGGER.warn("Tracer initialized failed with exception={}. returning NoopTracer. ", ex.getMessage());
             return NoopTracerFactory.create();
-        } catch ( InterruptedException ex) {
-            LOGGER.warn("Tracer initialized failed with exception={}. returning NoopTracer. ", ex.getMessage());
-            return NoopTracerFactory.create();
         }
-
     }
 
     public static void flush(Tracer tracer) {
