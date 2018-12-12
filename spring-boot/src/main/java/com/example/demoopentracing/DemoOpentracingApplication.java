@@ -1,5 +1,7 @@
 package com.example.demoopentracing;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -19,6 +21,9 @@ import com.uber.jaeger.samplers.ProbabilisticSampler;
 
 @SpringBootApplication
 public class DemoOpentracingApplication {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ConcreteTracer.class);
+
+	private final static String serviceName = "DemoOpentracingApplication";
 
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
@@ -34,9 +39,9 @@ public class DemoOpentracingApplication {
 
 	@Bean
 	public io.opentracing.Tracer lightstepTracer() {
-       //LOGGER.info("Initializing Tracer bean.");
-		io.opentracing.Tracer tracer = ConcreteTracer.getTracer("DemoOpentracingApplication");
-       //LOGGER.info("Initialized Tracer bean.");
+        LOGGER.info("Initializing Tracer bean.");
+		io.opentracing.Tracer tracer = ConcreteTracer.getTracer(serviceName);
+        LOGGER.info("Initialized Tracer bean.");
        return tracer;
 	}
 
