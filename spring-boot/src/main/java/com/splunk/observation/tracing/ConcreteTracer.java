@@ -21,6 +21,8 @@ public final class ConcreteTracer {
     public static final String LIGHTSTEP_ACCESSTOKEN_ENVVAR = "LIGHTSTEP_ACCESS_TOKEN";
     public static final String LIGHTSTEP_VERBOSE_ENVVAR = "LIGHTSTEP_VERBOSE";
 
+    // Lightstep is abled to get the followin defaults from access token.
+    // Placeholders until our own deployment of lightstep satllite.
     public static final String LIGHTSTEP_COLLECTORHOST_DEFAULT = "collector.lightstep.com";
     public static final int LIGHTSTEP_COLLECTORPORT_DEFAULT = 443;
     public static final String LIGHTSTEP_COLLECTORPROTOCOL_DEFAUlT = "http";
