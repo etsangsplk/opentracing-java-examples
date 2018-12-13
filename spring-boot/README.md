@@ -41,6 +41,7 @@ Resources:
 * https://github.com/lightstep/lightstep-tracer-java-common
 
 REPO:
-Location: https://github.com/etsangsplk/opentracing-java-examples
-Location + branch:
-https://github.com/etsangsplk/opentracing-java-examples/tree/lightstep`
+* Location: 
+  https://github.com/etsangsplk/opentracing-java-examples
+* Location + branch:
+  https://github.com/etsangsplk/opentracing-java-examples/tree/lightstep`
