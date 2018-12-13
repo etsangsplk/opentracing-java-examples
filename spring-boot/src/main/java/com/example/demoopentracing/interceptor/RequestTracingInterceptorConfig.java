@@ -8,10 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Component
 public class RequestTracingInterceptorConfig extends WebMvcConfigurerAdapter {
    @Autowired
-   RequestTracingInterceptor requetTracingInterceptor;
+   RequestTracingInterceptor requestTracingInterceptor;
 
    @Override
    public void addInterceptors(InterceptorRegistry registry) {
-      registry.addInterceptor(requetTracingInterceptor);
+      registry.addInterceptor(requestTracingInterceptor);
    }
 }

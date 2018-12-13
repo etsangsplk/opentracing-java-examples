@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 import com.splunk.observation.tracing.ConcreteTracer;
 
@@ -18,8 +19,8 @@ public class DemoOpentracingApplication {
 
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
-
-	    return restTemplateBuilder.build();
+	    RestTemplate restTemplate = restTemplateBuilder.build();
+	    return restTemplate;
 	}
 
 	@Bean

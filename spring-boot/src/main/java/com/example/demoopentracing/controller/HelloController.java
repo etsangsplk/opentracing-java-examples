@@ -1,5 +1,6 @@
 package com.example.demoopentracing.controller;
 
+import io.opentracing.Scope;
 import io.opentracing.Span;
 import io.opentracing.util.GlobalTracer;
 import io.opentracing.Tracer;
@@ -28,28 +29,23 @@ public class HelloController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @RequestMapping(path="/hello", method= RequestMethod.GET)
+    @RequestMapping(path="/hello", name="hello", method= RequestMethod.GET)
     public String hello() {
         int millis = this.random.nextInt(1000);
-        Tracer tracer = GlobalTracer.get();
-        LOGGER.info(tracer.toString());
-        Span span = tracer.activeSpan();
-        if (span == null ){
-            LOGGER.info("span i null");
-        }
-        //Span span = tracer.activeSpan().setOperationName("hello").setTag("tag", "tag1");
-        //tracer.activeSpan().setTag("random-sleep-millis", String.valueOf(millis));
-        //span.finish();
+      //  Tracer tracer = GlobalTracer.get();
+      //  Span span = tracer.activeSpan().setOperationName("hello").setTag("tag", "tag1");
+      //  tracer.activeSpan().setTag("random-sleep-millis", String.valueOf(millis));
+      //  span.finish();
         return "Hello from Spring Boot!";
     }
 
-    @RequestMapping(path="/chaining", method = RequestMethod.GET)
+    @RequestMapping(path="/chaining", name= "chaining", method = RequestMethod.GET)
     public String chaining() {
         int millis = this.random.nextInt(1000);
-        Tracer tracer = GlobalTracer.get();
-        Span span = tracer.activeSpan().setOperationName("chaining").setTag("tag", "chaining");
+    //    Tracer tracer = GlobalTracer.get();
+     //   Span span = tracer.activeSpan().setOperationName("chaining").setTag("tag", "chaining");
         ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/hello", String.class);
-        tracer.activeSpan().setTag("random-sleep-millis", String.valueOf(millis));
+      //  tracer.activeSpan().setTag("random-sleep-millis", String.valueOf(millis));
        // span.finish();
         return "Chaining + " + response.getBody();
     }
