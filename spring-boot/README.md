@@ -43,8 +43,11 @@ Resources:
 TODO:
 We should be able to customize things like Span operation name, and tags using SpanDecorators.
 It look like they are taking a list of List<HandlerInterceptorSpanDecorator> decorators here.
- ** https://github.com/opentracing-contrib/java-spring-web/blob/0933caece7de11ae9f9d411113a5473d35288cf8/opentracing-spring-web/src/main/java/io/opentracing/contrib/spring/web/interceptor/TracingHandlerInterceptor.java#L41
- ** https://github.com/opentracing-contrib/java-spring-web/tree/0933caece7de11ae9f9d411113a5473d35288cf8/opentracing-spring-web/src/main/java/io/opentracing/contrib/spring/web/interceptor
+
+ * https://github.com/opentracing-contrib/java-spring-web/blob/0933caece7de11ae9f9d411113a5473d35288cf8/opentracing-spring-web/src/main/java/io/opentracing/contrib/spring/web/interceptor/TracingHandlerInterceptor.java#L41
+
+ *  https://github.com/opentracing-contrib/java-spring-web/tree/0933caece7de11ae9f9d411113a5473d35288cf8/opentracing-spring-web/src/main/java/io/opentracing/contrib/spring/web/interceptor
+
 I have no idea how to wire this up.
 
 
