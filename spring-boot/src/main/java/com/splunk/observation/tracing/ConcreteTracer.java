@@ -1,4 +1,4 @@
-package com.example.demoopentracing;
+package com.splunk.observation.tracing;
 
 import com.lightstep.tracer.jre.JRETracer;
 import io.opentracing.util.GlobalTracer;
@@ -62,9 +62,9 @@ public class ConcreteTracer {
     }
 
     public static void flush(Tracer tracer) {
-         if(tracer instanceof com.lightstep.tracer.jre.JRETracer) {
+        if(tracer instanceof com.lightstep.tracer.jre.JRETracer) {
             ((com.lightstep.tracer.jre.JRETracer) tracer).flush(20000);
-         }
+        }
     }
 
     private static Map<String, String> getSettings() {

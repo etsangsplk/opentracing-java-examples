@@ -8,6 +8,8 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+import com.splunk.observation.tracing.ConcreteTracer;
+
 import com.uber.jaeger.Configuration;
 import com.uber.jaeger.samplers.ProbabilisticSampler;
 
