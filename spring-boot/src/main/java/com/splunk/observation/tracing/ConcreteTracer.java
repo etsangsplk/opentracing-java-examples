@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConcreteTracer {
+public final class ConcreteTracer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConcreteTracer.class);
 
     public static final String LIGHTSTEP_ENABLED_ENVVAR  = "LIGHTSTEP_ENABLED";
