@@ -58,6 +58,10 @@ OR
  * Also need to investigate Span Baggage. Span Baggage will be pass along in-band, and is good for something that is immutatble. E.g. some client generated id, that is not controlled by server, 
  we can extract and add to span tag in order for it to be searchable. This part is not in the Golang observation library either.
  
+ 
+Client:
+Interceptor concept is also available to http client.
+https://github.com/opentracing-contrib/java-spring-web/blob/master/opentracing-spring-web/src/main/java/io/opentracing/contrib/spring/web/client/TracingRestTemplateInterceptor.java
   
 I have no idea how to wire this up.
 
