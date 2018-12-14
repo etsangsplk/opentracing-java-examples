@@ -8,14 +8,13 @@ import io.opentracing.noop.NoopTracerFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
 
 import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class ConcreteTracer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ConcreteTracer.class);
+public final class LighstepTracer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LighstepTracer.class);
 
     public static final String LIGHTSTEP_ENABLED_ENVVAR  = "LIGHTSTEP_ENABLED";
     public static final String LIGHTSTEP_ACCESSTOKEN_ENVVAR = "LIGHTSTEP_ACCESS_TOKEN";
