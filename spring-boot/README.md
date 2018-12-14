@@ -48,6 +48,17 @@ It look like they are taking a list of List<HandlerInterceptorSpanDecorator> dec
 
  *  https://github.com/opentracing-contrib/java-spring-web/tree/0933caece7de11ae9f9d411113a5473d35288cf8/opentracing-spring-web/src/main/java/io/opentracing/contrib/spring/web/interceptor
 
+OR
+
+ * we can make a do that inside a custom requestracing handler. But it may duplicate code from one already in place.
+
+ * the Span decorators can only extract items like X-REQUEST-ID from http request and translate that to span tags. 
+ It is unclear how to overwrite the Span operation name. For example, the HellowController method "hello"  gives more meaning than "GET" as span operation name, "hello" is not available to http servelet request.
+ There are 2 more parameters for SpanDecorators, unsure what if they can help.
+ * Also need to investigate Span Baggage. Span Baggage will be pass along in-band, and is good for something that is immutatble. E.g. some client generated id, that is not controlled by server, 
+ we can extract and add to span tag in order for it to be searchable. This part is not in the Golang observation library either.
+ 
+  
 I have no idea how to wire this up.
 
 
