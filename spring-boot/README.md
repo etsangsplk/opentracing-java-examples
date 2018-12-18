@@ -19,6 +19,13 @@ To Run:
 just set the following as your JVM Env variables
 LIGHTSTEP_ENABLED=true;LIGHTSTEP_ACCESS_TOKEN=<your valid access token>;LIGHTSTEP_VERBOSE=4
 
+Opentracing Specs contains suggested convensions for names, span tags, span operation names etc. T
+
+* https://github.com/opentracing/specification/blob/master/specification.md
+
+* https://github.com/opentracing/specification/blob/master/semantic_conventions.md
+
+* https://github.com/opentracing/specification
 
 Notes.
 * Opentracing API is mostly a set of abstract class and interfaces, they outsource as mucha s the concrete stuff to vendors/tracer implementation.
@@ -40,7 +47,7 @@ Resources:
 * https://github.com/lightstep/lightstep-tracer-java
 * https://github.com/lightstep/lightstep-tracer-java-common
 
-TODO:
+TODO (refer to Opentracing Specs):
 We should be able to customize things like Span operation name, and tags using SpanDecorators.
 It look like they are taking a list of List<HandlerInterceptorSpanDecorator> decorators here.
 
