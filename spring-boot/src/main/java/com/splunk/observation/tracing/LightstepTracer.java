@@ -52,7 +52,7 @@ public final class LightstepTracer {
                     .withVerbosity(verbosity)
                     .build();
             Tracer tracer = new JRETracer(options);
-            LOGGER.info("Tracer initialized with serviceName", serviceName);
+            LOGGER.info("Tracer initialized with service name {}.", serviceName);
             GlobalTracer.register(tracer);
             return tracer;
 
